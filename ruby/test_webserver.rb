@@ -10,8 +10,9 @@ end
 
 Knj.gem_require(:Http2)
 
-Http2.new(:host => "localhost", :port => 8081) do |http|
+Http2.new(:host => "localhost", :port => 8081, :debug => false) do |http|
   1.upto(5) do |rcount|
+    puts "Getting result."
     res = http.get("")
     
     puts "Got the following body back:"
