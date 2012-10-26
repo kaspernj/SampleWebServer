@@ -11,13 +11,17 @@ public class TestStartSample {
 	@Test
 	public void test() {
 		HashMap<String, String> opts = new HashMap<String, String>();
-		opts.put("DocumentRoot", "/home/kaspernj/Dev/Java/Eclipse/SampleWebServer/");
+		opts.put("DocumentRoot", "/home/kaspernj/Dev/Java/Eclipse/SampleWebServer/html");
 		
 		try {
-			SampleWebServer smws = new SampleWebServer();
-		} catch (IOException e) {
+			SampleWebServer smws = new SampleWebServer(opts);
+			smws.start();
+			smws.join();
+		} catch (Exception e) {
 			fail(e.getMessage());
 		}
+		
+		
 	}
 
 }
